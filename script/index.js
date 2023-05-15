@@ -12,9 +12,6 @@ let pageAbout = document.querySelector('.profile__about-self');
 
 // Находим форму в DOM
 
-nameInput.value = pageTitle.textContent;
-aboutInput.value = pageAbout.textContent;
-
 function handleFormSubmit(evt) {
   evt.preventDefault();
 
@@ -23,7 +20,15 @@ function handleFormSubmit(evt) {
   closePopupFunction(editPopup);
 }
 
-formElement.addEventListener('submit', handleFormSubmit);
+function openPopupFunction(popup) {
+  popup.classList.add('popup_opened');
+  nameInput.value = pageTitle.textContent;
+  aboutInput.value = pageAbout.textContent;
+}
+
+function closePopupFunction(popup) {
+  popup.classList.remove('popup_opened');
+}
 
 openPopup.addEventListener('click', function () {
   openPopupFunction(editPopup);
@@ -33,10 +38,4 @@ closePopup.addEventListener('click', function () {
   closePopupFunction(editPopup);
 });
 
-function openPopupFunction(popup) {
-  popup.classList.add('popup_opened');
-}
-
-function closePopupFunction(popup) {
-  popup.classList.remove('popup_opened');
-}
+formElement.addEventListener('submit', handleFormSubmit);

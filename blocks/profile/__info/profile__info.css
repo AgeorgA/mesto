@@ -1,5 +1,6 @@
 .profile__info {
   display: grid;
+
   grid-template-columns: 294px 24px;
   grid-template-rows: 39px 18px;
   gap: 16px 18px;
@@ -18,7 +19,9 @@
 
 @media screen and (max-width: 520px) {
   .profile__info {
-    grid-template-columns: 254px 18px;
+    width: 282px;
+
+    grid-template-columns: 235px auto;
     text-align: center;
     grid-template-areas:
       'profile__name profile__edit-button'

@@ -10,110 +10,86 @@
   <body>
     <div class="page">
       <header class="header">
-        <img src="images/Logo.svg" alt="Место Россия" class="header__logo" />
+        <img src="images/logo.svg" alt="Место Россия" class="header__logo" />
       </header>
       <main class="content">
-        <div class="profile content__profile">
+        <section class="profile content__profile">
           <img src="images/image.jpg" alt="Аватар Жак-Ив Кусто" class="profile__avatar" />
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <div class="profile__edit-button button"></div>
+            <button
+              aria-label="Редактировать"
+              type="button"
+              class="profile__edit-button button"
+            ></button>
             <p class="profile__about-self">Исследователь океана</p>
           </div>
 
-          <div class="profile__add-button button"></div>
-        </div>
-        <div class="elements">
-          <div class="elements__element">
-            <img src="images/karachaevsk.jpg" alt="Карачаево-Черкесск" class="elements__img" />
-            <div class="elements__division">
-              <h2 class="elements__name">Карачаево-Черкесск</h2>
-              <img
-                src="images/heart.svg"
-                onclick='src="images/heart_black.svg"'
-                alt="Сердце"
-                class="elements__heart"
-              />
+          <button type="button" aria-label="Добавить" class="profile__add-button button"></button>
+        </section>
+        <section class="elements">
+          <div class="card">
+            <img src="images/karachaevsk.jpg" alt="Карачаево-Черкесск" class="card__img" />
+            <div class="card__division">
+              <h2 class="card__name">Карачаево-Черкесск</h2>
+              <button aria-label="Лайк" type="button" class="card__heart"></button>
             </div>
           </div>
-          <div class="elements__element">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="elements__img" />
-            <div class="elements__division">
-              <h2 class="elements__name">Карачаевск</h2>
-              <img
-                src="images/heart.svg"
-                onclick='src="images/heart_black.svg"'
-                alt="Сердце"
-                class="elements__heart"
-              />
+          <div class="card">
+            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
+            <div class="card__division">
+              <h2 class="card__name">Карачаевск</h2>
+              <button aria-label="Лайк" type="button" class="card__heart"></button>
             </div>
           </div>
-          <div class="elements__element">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="elements__img" />
-            <div class="elements__division">
-              <h2 class="elements__name">Карачаевск</h2>
-              <img
-                src="images/heart.svg"
-                onclick='src="images/heart_black.svg"'
-                alt="Сердце"
-                class="elements__heart"
-              />
+          <div class="card">
+            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
+            <div class="card__division">
+              <h2 class="card__name">Карачаевск</h2>
+              <button aria-label="Лайк" type="button" class="card__heart"></button>
             </div>
           </div>
-          <div class="elements__element">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="elements__img" />
-            <div class="elements__division">
-              <h2 class="elements__name">Карачаевск</h2>
-              <img
-                src="images/heart.svg"
-                onclick='src="images/heart_black.svg"'
-                alt="Сердце"
-                class="elements__heart"
-              />
+          <div class="card">
+            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
+            <div class="card__division">
+              <h2 class="card__name">Карачаевск</h2>
+              <button aria-label="Лайк" type="button" class="card__heart"></button>
             </div>
           </div>
-          <div class="elements__element">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="elements__img" />
-            <div class="elements__division">
-              <h2 class="elements__name">Карачаевск</h2>
-              <img
-                src="images/heart.svg"
-                onclick='src="images/heart_black.svg"'
-                alt="Сердце"
-                class="elements__heart"
-              />
+          <div class="card">
+            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
+            <div class="card__division">
+              <h2 class="card__name">Карачаевск</h2>
+              <button aria-label="Лайк" type="button" class="card__heart"></button>
             </div>
           </div>
-          <div class="elements__element">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="elements__img" />
-            <div class="elements__division">
-              <h2 class="elements__name">Карачаевск</h2>
-              <img
-                src="images/heart.svg"
-                onclick='src="images/heart_black.svg"'
-                alt="Сердце"
-                class="elements__heart"
-              />
+          <div class="card">
+            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
+            <div class="card__division">
+              <h2 class="card__name">Карачаевск</h2>
+              <button aria-label="Лайк" type="button" class="card__heart"></button>
             </div>
           </div>
-        </div>
+        </section>
       </main>
       <footer class="footer page__footer">
         <p class="footer__info">© 2023 Mesto Russia</p>
       </footer>
       <div class="popup">
         <div class="popup__container">
-          <form class="popup__form">
+          <form name="fio-about-form" class="popup__form">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input id="name-input" type="text" class="popup__input" />
-            <input id="about-input" type="text" class="popup__input" />
-            <button class="popup__button button">Сохранить</button>
+            <input name="name-input" id="name-input" type="text" class="popup__input" />
+            <input name="about-input" id="about-input" type="text" class="popup__input" />
+            <button type="submit" aria-labelledby="Сохранить" class="popup__button button">
+              Сохранить
+            </button>
           </form>
-          <button class="popup__close-button button"></button>
+          <button type="button" aria-label="Закрыть" class="popup__close-button button"></button>
         </div>
       </div>
     </div>
 
-    <script src="pages/index.js" defer></script>
+    <script src="script/index.js" defer></script>
   </body>
 </html>

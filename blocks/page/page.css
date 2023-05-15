@@ -1,8 +1,10 @@
 .page {
   font-family: 'Inter', Arial, sans-serif;
   color: #fff;
-  margin: 0 auto;
+  min-height: 100vh;
+  max-height: 100%;
   background-color: #000;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
