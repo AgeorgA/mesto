@@ -27,57 +27,15 @@
 
           <button type="button" aria-label="Добавить" class="profile__add-button button"></button>
         </section>
-        <section class="elements">
-          <div class="card">
-            <img src="images/karachaevsk.jpg" alt="Карачаево-Черкесск" class="card__img" />
-            <div class="card__division">
-              <h2 class="card__name">Карачаево-Черкесск</h2>
-              <button aria-label="Лайк" type="button" class="card__heart"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
-            <div class="card__division">
-              <h2 class="card__name">Карачаевск</h2>
-              <button aria-label="Лайк" type="button" class="card__heart"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
-            <div class="card__division">
-              <h2 class="card__name">Карачаевск</h2>
-              <button aria-label="Лайк" type="button" class="card__heart"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
-            <div class="card__division">
-              <h2 class="card__name">Карачаевск</h2>
-              <button aria-label="Лайк" type="button" class="card__heart"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
-            <div class="card__division">
-              <h2 class="card__name">Карачаевск</h2>
-              <button aria-label="Лайк" type="button" class="card__heart"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="card__img" />
-            <div class="card__division">
-              <h2 class="card__name">Карачаевск</h2>
-              <button aria-label="Лайк" type="button" class="card__heart"></button>
-            </div>
-          </div>
-        </section>
+        <section class="cards"></section>
       </main>
       <footer class="footer page__footer">
         <p class="footer__info">© 2023 Mesto Russia</p>
       </footer>
-      <div class="popup">
+
+      <div class="popup" id="popup_edit-fio">
         <div class="popup__container">
-          <form name="fio-about-form" class="popup__form">
+          <form name="fio-about-form" class="popup__form" id="popup__form_fio">
             <h2 class="popup__title">Редактировать профиль</h2>
             <input name="name-input" id="name-input" type="text" class="popup__input" />
             <input name="about-input" id="about-input" type="text" class="popup__input" />
@@ -85,10 +43,65 @@
               Сохранить
             </button>
           </form>
-          <button type="button" aria-label="Закрыть" class="popup__close-button button"></button>
+          <button
+            type="button"
+            id="close-fio"
+            aria-label="Закрыть"
+            class="popup__close-button button"
+          ></button>
+        </div>
+      </div>
+
+      <div class="popup" id="popup_add-card">
+        <div class="popup__container">
+          <form name="card-add-form" class="popup__form" id="popup__form_card">
+            <h2 class="popup__title">Новое место</h2>
+            <input
+              name="card-name-input"
+              id="card-name-input"
+              placeholder="Название"
+              type="text"
+              class="popup__input"
+            />
+            <input
+              name="card-img-input"
+              placeholder="Ссылка на картинку"
+              id="card-img-input"
+              type="text"
+              class="popup__input"
+            />
+            <button type="submit" aria-labelledby="Добавить" class="popup__button button">
+              Создать
+            </button>
+          </form>
+          <button
+            type="button"
+            id="close-card"
+            aria-label="Закрыть"
+            class="popup__close-button button"
+          ></button>
+        </div>
+      </div>
+
+      <div class="popup" id="popup-image">
+        <div class="popup-image">
+          <button class="popup-image__close button"></button>
+          <img src="" alt="" class="popup-image__image" />
+          <h2 class="popup-image__name"></h2>
         </div>
       </div>
     </div>
+
+    <template id="card-template">
+      <div class="card">
+        <img src="" alt="Название" class="card__img" />
+        <button aria-label="Удаление" type="button" class="card__trashbox button"></button>
+        <div class="card__division">
+          <h2 class="card__name"></h2>
+          <button aria-label="Лайк" type="button" class="card__heart"></button>
+        </div>
+      </div>
+    </template>
 
     <script src="script/index.js" defer></script>
   </body>
