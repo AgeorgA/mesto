@@ -37,8 +37,8 @@
         <div class="popup__container">
           <form name="fio-about-form" class="popup__form" id="popup__form_fio">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input name="name-input" id="name-input" type="text" class="popup__input" />
-            <input name="about-input" id="about-input" type="text" class="popup__input" />
+            <input name="name-input" id="name-input" type="text" class="popup__input" required />
+            <input name="about-input" id="about-input" type="text" class="popup__input" required />
             <button type="submit" aria-labelledby="Сохранить" class="popup__button button">
               Сохранить
             </button>
@@ -62,6 +62,7 @@
               placeholder="Название"
               type="text"
               class="popup__input"
+              required
             />
             <input
               name="card-img-input"
@@ -69,6 +70,7 @@
               id="card-img-input"
               type="text"
               class="popup__input"
+              required
             />
             <button type="submit" aria-labelledby="Добавить" class="popup__button button">
               Создать
@@ -83,18 +85,25 @@
         </div>
       </div>
 
-      <div class="popup" id="popup-image">
-        <div class="popup-image">
-          <button class="popup-image__close button"></button>
-          <img class="popup-image__image" />
-          <h2 class="popup-image__name"></h2>
+      <div class="popup popup_hover-black" id="popup-image">
+        <div class="popup__image-container">
+          <button
+            type="button"
+            id="close-big-image"
+            aria-label="Закрыть"
+            class="popup__close-button button"
+          ></button>
+          <img class="popup__image" />
+          <h2 class="popup__name-image"></h2>
         </div>
       </div>
     </div>
     <!-- Шаблон для создания карточек -->
     <template id="card-template">
       <div class="card">
-        <img alt="Название" class="card__img" />
+        <div class="card__img-place">
+          <img alt="Название" class="card__img" />
+        </div>
         <button aria-label="Удаление" type="button" class="card__trashbox button"></button>
         <div class="card__division">
           <h2 class="card__name"></h2>
