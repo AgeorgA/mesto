@@ -62,16 +62,22 @@ function createCard(nameCard, linkCard) {
 
 function openPopupFunction(popup) {
   popup.classList.add('popup_opened');
-  nameInput.value = profileName.textContent;
-  aboutInput.value = profileAbout.textContent;
 }
 
 function closePopupFunction(popup) {
   popup.classList.remove('popup_opened');
 }
 
-buttonOpenPopupMesto.addEventListener('click', () => openPopupFunction(popupMesto));
-buttonOpenPopupProfile.addEventListener('click', () => openPopupFunction(popupProfile));
+buttonOpenPopupMesto.addEventListener('click', () => {
+  cardName.value = null;
+  cardImg.value = null;
+  openPopupFunction(popupMesto);
+});
+buttonOpenPopupProfile.addEventListener('click', () => {
+  openPopupFunction(popupProfile);
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
+});
 buttonClosePopupMesto.addEventListener('click', () => closePopupFunction(popupMesto));
 buttonClosePopupProfile.addEventListener('click', () => closePopupFunction(popupProfile));
 buttonClosePopupZooming.addEventListener('click', () => closePopupFunction(popupImage));
