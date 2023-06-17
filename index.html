@@ -35,11 +35,37 @@
 
       <div class="popup" id="popup_edit-fio">
         <div class="popup__container">
-          <form name="fio-about-form" class="popup__form" id="popup__form_fio">
+          <form name="fio-about-form" class="popup__form" id="popup__form_fio" novalidate>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input name="name-input" id="name-input" type="text" class="popup__input" required />
-            <input name="about-input" id="about-input" type="text" class="popup__input" required />
-            <button type="submit" aria-labelledby="Сохранить" class="popup__button button">
+
+            <input
+              name="fio"
+              id="name-input"
+              type="text"
+              class="popup__input"
+              placeholder="Введите ФИО"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="popup__error name-input-error"></span>
+            <input
+              name="about"
+              id="about-input"
+              type="text"
+              class="popup__input"
+              placeholder="Введите 'О Себе'"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="popup__error about-input-error"></span>
+
+            <button
+              type="submit"
+              aria-labelledby="Сохранить"
+              class="popup__submit popup__button button"
+            >
               Сохранить
             </button>
           </form>
@@ -54,24 +80,29 @@
 
       <div class="popup" id="popup_add-card">
         <div class="popup__container">
-          <form name="card-add-form" class="popup__form" id="popup__form_card">
+          <form name="card-add-form" class="popup__form" id="popup__form_card" novalidate>
             <h2 class="popup__title">Новое место</h2>
+
             <input
-              name="card-name-input"
+              name="cardName"
               id="card-name-input"
               placeholder="Название"
               type="text"
               class="popup__input"
+              minlength="2"
+              maxlength="30"
               required
             />
+            <span class="popup__error card-name-input-error"></span>
             <input
-              name="card-img-input"
+              name="cardImg"
               placeholder="Ссылка на картинку"
               id="card-img-input"
-              type="text"
+              type="url"
               class="popup__input"
               required
             />
+            <span class="popup__error card-img-input-error"></span>
             <button type="submit" aria-labelledby="Добавить" class="popup__button button">
               Создать
             </button>
@@ -111,7 +142,9 @@
         </div>
       </div>
     </template>
+
     <script src="script/cards.js" defer></script>
     <script src="script/index.js" defer></script>
+    <script src="script/validate.js" defer></script>
   </body>
 </html>
