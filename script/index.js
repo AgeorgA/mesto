@@ -97,8 +97,8 @@ buttonOpenPopupProfile.addEventListener('click', () => {
   openPopupFunction(popupProfile);
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
-  hideInputError(formProfile, nameInput);
-  hideInputError(formProfile, aboutInput);
+  hideInputError(formProfile, nameInput, installation);
+  hideInputError(formProfile, aboutInput, installation);
   buttonProfileSubmit.classList.remove('popup__button_disabled');
   buttonCardSubmit.removeAttribute('disabled');
 });
