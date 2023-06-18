@@ -1,10 +1,9 @@
 const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
 const buttonOpenPopupMesto = document.querySelector('.profile__add-button');
 const buttonProfileSubmit = document.querySelector('.popup__submit');
+const buttonCardSubmit = document.querySelector('.popup__submit-card');
 
-const buttonClosePopupProfile = document.querySelector('#close-fio');
-const buttonClosePopupMesto = document.querySelector('#close-card');
-const buttonClosePopupZooming = document.querySelector('#close-big-image');
+const closeButtons = document.querySelectorAll('.popup__close-button');
 
 const popupProfile = document.querySelector('#popup_edit-fio');
 const popupMesto = document.querySelector('#popup_add-card');
@@ -64,12 +63,12 @@ function createCard(nameCard, linkCard) {
 function openPopupFunction(popup) {
   popup.classList.add('popup_opened');
   document.body.addEventListener('keydown', closePopupEsc);
-  document.querySelector('.popup_opened').addEventListener('click', closePopupOverlay);
+  popup.addEventListener('click', closePopupOverlay);
 }
 
 function closePopupFunction(popup) {
   document.body.removeEventListener('keydown', closePopupEsc);
-  document.querySelector('.popup_opened').removeEventListener('click', closePopupOverlay);
+  popup.removeEventListener('click', closePopupOverlay);
   popup.classList.remove('popup_opened');
 }
 
@@ -86,11 +85,12 @@ function closePopupEsc(evt) {
 }
 
 buttonOpenPopupMesto.addEventListener('click', () => {
-  cardName.value = null;
-  cardImg.value = null;
+  formCard.reset();
   openPopupFunction(popupMesto);
   hideInputError(formCard, cardName);
   hideInputError(formCard, cardImg);
+  buttonCardSubmit.classList.add('popup__button_disabled');
+  buttonCardSubmit.setAttribute('disabled', true);
 });
 
 buttonOpenPopupProfile.addEventListener('click', () => {
@@ -100,11 +100,13 @@ buttonOpenPopupProfile.addEventListener('click', () => {
   hideInputError(formProfile, nameInput);
   hideInputError(formProfile, aboutInput);
   buttonProfileSubmit.classList.remove('popup__button_disabled');
+  buttonCardSubmit.removeAttribute('disabled');
 });
 
-buttonClosePopupMesto.addEventListener('click', () => closePopupFunction(popupMesto));
-buttonClosePopupProfile.addEventListener('click', () => closePopupFunction(popupProfile));
-buttonClosePopupZooming.addEventListener('click', () => closePopupFunction(popupImage));
+closeButtons.forEach(button => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopupFunction(popup));
+});
 
 formCard.addEventListener('submit', function (event) {
   event.preventDefault();
