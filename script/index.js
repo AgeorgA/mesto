@@ -87,8 +87,8 @@ function closePopupEsc(evt) {
 buttonOpenPopupMesto.addEventListener('click', () => {
   formCard.reset();
   openPopupFunction(popupMesto);
-  hideInputError(formCard, cardName);
-  hideInputError(formCard, cardImg);
+  hideInputError(formCard, cardName, installation);
+  hideInputError(formCard, cardImg, installation);
   buttonCardSubmit.classList.add('popup__button_disabled');
   buttonCardSubmit.setAttribute('disabled', true);
 });
