@@ -77,9 +77,9 @@ initialCards.forEach(item => {
 formCard.addEventListener('submit', function (event) {
   event.preventDefault();
   const values = {};
-  values.name = cardName.value;
+  values.nameCard = cardName.value;
   values.alt = cardName.value;
-  values.link = cardImg.value;
+  values.linkCard = cardImg.value;
 
   const card = new Card(values, '#card-template');
   const cardEl = card.createCard();
