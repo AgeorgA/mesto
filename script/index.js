@@ -23,9 +23,9 @@ const profileAbout = document.querySelector('.profile__about-self');
 
 const cards = document.querySelector('.cards');
 
-const profileFormValidate = new FormValidator(installation, buttonOpenPopupProfile);
+const profileFormValidate = new FormValidator(installation, formProfile);
 profileFormValidate.enableValidation();
-const cardFormValidate = new FormValidator(installation, buttonOpenPopupMesto);
+const cardFormValidate = new FormValidator(installation, formCard);
 cardFormValidate.enableValidation();
 export function openPopupFunction(popup) {
   popup.classList.add('popup_opened');

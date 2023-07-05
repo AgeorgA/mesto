@@ -42,9 +42,9 @@ export class FormValidator {
 
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
-      this._showInputError(inputElement, inputElement.validationMessage, config);
+      this._showInputError(inputElement, inputElement.validationMessage);
     } else {
-      hideInputError(inputElement);
+      this._hideInputError(inputElement);
     }
   }
 
@@ -58,7 +58,7 @@ export class FormValidator {
     if (this._hasInvalidInput()) {
       this.activateButton();
     } else {
-      // this.deactivateButton();
+      this.deactivateButton();
     }
   }
 
