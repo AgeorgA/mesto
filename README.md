@@ -24,7 +24,9 @@
 - grid;
 - @font-face;
 - @media;
-- функции JS.
+- функции JS;
+- ООП;
+- ES6 Modules.
 
 **Ссылка:**
 

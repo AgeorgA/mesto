@@ -1,10 +1,9 @@
-import { openPopupFunction } from './index.js';
-
 export class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, popupZoomImg) {
     this._templateSelector = templateSelector;
     this._nameCard = data.nameCard;
     this._linkCard = data.linkCard;
+    this._popupZoomImg = popupZoomImg;
   }
   _getTemplate() {
     const cardEl = document
@@ -16,41 +15,43 @@ export class Card {
 
   createCard() {
     this._element = this._getTemplate();
-
-    this._element.querySelector('.card__img').src = this._linkCard;
-    this._element.querySelector('.card__img').alt = this._nameCard;
-    this._element.querySelector('.card__name').textContent = this._nameCard;
+    // Переменные для класса, чтобы не было поисков в методах
+    this._likeButton = this._element.querySelector('.card__heart');
+    this._trashboxButton = this._element.querySelector('.card__trashbox');
+    this._cardImage = this._element.querySelector('.card__img');
+    this._cardName = this._element.querySelector('.card__name');
+    // Создание карточки
+    this._cardImage.src = this._linkCard;
+    this._cardImage.alt = this._nameCard;
+    this._cardName.textContent = this._nameCard;
 
     this._setEventListeners();
     return this._element;
   }
 
   _heartCard() {
-    this._element.querySelector('.card__heart').classList.toggle('card__heart_active');
+    this._likeButton.classList.toggle('card__heart_active');
   }
 
   _deleteCard() {
     this._element.remove();
   }
 
-  _openZoomingImg() {
-    openPopupFunction(document.querySelector('#popup-image'));
-    document.querySelector('.popup__image').src = this._linkCard;
-    document.querySelector('.popup__image').alt = this._nameCard;
-    document.querySelector('.popup__name-image').textContent = this._nameCard;
+  _handleOpenPopup() {
+    this._popupZoomImg(this._linkCard, this._nameCard);
   }
 
   _setEventListeners() {
-    this._element.querySelector('.card__heart').addEventListener('click', () => {
+    this._likeButton.addEventListener('click', () => {
       this._heartCard();
     });
 
-    this._element.querySelector('.card__trashbox').addEventListener('click', () => {
+    this._trashboxButton.addEventListener('click', () => {
       this._deleteCard();
     });
 
-    this._element.querySelector('.card__img').addEventListener('click', () => {
-      this._openZoomingImg();
+    this._cardImage.addEventListener('click', () => {
+      this._handleOpenPopup();
     });
   }
 }

@@ -1,12 +1,3 @@
-export const installation = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_active'
-};
-
 export class FormValidator {
   constructor(config, formElement) {
     this._config = config;
@@ -77,7 +68,7 @@ export class FormValidator {
     this._setEventListeners();
   }
 
-  resetError() {
+  resetErrors() {
     this._inputList.forEach(inputElement => {
       this._hideInputError(inputElement);
     });
