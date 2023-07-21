@@ -1,9 +1,9 @@
 export class Card {
-  constructor(data, templateSelector, popupZoomImg) {
+  constructor({ data, handleCardClick }, templateSelector) {
     this._templateSelector = templateSelector;
-    this._nameCard = data.nameCard;
-    this._linkCard = data.linkCard;
-    this._popupZoomImg = popupZoomImg;
+    this._name = data.cardName;
+    this._link = data.cardLink;
+    this._handleCardClick = handleCardClick;
   }
   _getTemplate() {
     const cardEl = document
@@ -18,12 +18,13 @@ export class Card {
     // Переменные для класса, чтобы не было поисков в методах
     this._likeButton = this._element.querySelector('.card__heart');
     this._trashboxButton = this._element.querySelector('.card__trashbox');
+
     this._cardImage = this._element.querySelector('.card__img');
     this._cardName = this._element.querySelector('.card__name');
-    // Создание карточки
-    this._cardImage.src = this._linkCard;
-    this._cardImage.alt = this._nameCard;
-    this._cardName.textContent = this._nameCard;
+    // // Создание карточки
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._cardName.textContent = this._name;
 
     this._setEventListeners();
     return this._element;
@@ -37,10 +38,6 @@ export class Card {
     this._element.remove();
   }
 
-  _handleOpenPopup() {
-    this._popupZoomImg(this._linkCard, this._nameCard);
-  }
-
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => {
       this._heartCard();
@@ -51,7 +48,7 @@ export class Card {
     });
 
     this._cardImage.addEventListener('click', () => {
-      this._handleOpenPopup();
+      this._handleCardClick();
     });
   }
 }

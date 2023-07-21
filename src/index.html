@@ -4,18 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="pages/index.css" />
-    <script type="module" src="script/index.js"></script>
+    <!-- <link rel="stylesheet" href="pages/index.css" /> -->
+    <script type="module" src="pages/index.js"></script>
     <title>Место</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="images/logo.svg" alt="Место Россия" class="header__logo" />
+        <img src="<%=require('./images/logo.svg')%>" alt="Место Россия" class="header__logo" />
       </header>
       <main class="content">
         <section class="profile content__profile">
-          <img src="images/image.jpg" alt="Аватар Жак-Ив Кусто" class="profile__avatar" />
+          <img
+            src="<%=require('./images/image.jpg')%>"
+            alt="Аватар Жак-Ив Кусто"
+            class="profile__avatar"
+          />
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button
@@ -96,7 +100,7 @@
             />
             <span class="popup__error card-name-input-error"></span>
             <input
-              name="cardImg"
+              name="cardLink"
               placeholder="Ссылка на картинку"
               id="card-img-input"
               type="url"
