@@ -26,7 +26,9 @@
 - @media;
 - функции JS;
 - ООП;
-- ES6 Modules.
+- ES6 Modules;
+- Webpack;
+- Nodejs.
 
 **Ссылка:**
 
