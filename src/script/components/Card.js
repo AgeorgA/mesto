@@ -30,17 +30,17 @@ export class Card {
     return this._element;
   }
 
-  _heartCard() {
+  _handleLikeClick() {
     this._likeButton.classList.toggle('card__heart_active');
   }
 
   _deleteCard() {
-    this._element.remove();
+    this._element = null;
   }
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => {
-      this._heartCard();
+      this._handleLikeClick();
     });
 
     this._trashboxButton.addEventListener('click', () => {

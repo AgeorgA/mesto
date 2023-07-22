@@ -21,14 +21,14 @@ export class FormValidator {
     errorElement.textContent = '';
   }
 
-  activateButton() {
+  deactivateButton() {
     this._buttonElement.classList.add(this._config.inactiveButtonClass);
-    this._buttonElement.setAttribute('disabled', true);
+    this._buttonElement.disabled = true;
   }
 
-  deactivateButton() {
+  activateButton() {
     this._buttonElement.classList.remove(this._config.inactiveButtonClass);
-    this._buttonElement.removeAttribute('disabled');
+    this._buttonElement.disabled = false;
   }
 
   _checkInputValidity(inputElement) {
@@ -47,9 +47,9 @@ export class FormValidator {
 
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
-      this.activateButton();
-    } else {
       this.deactivateButton();
+    } else {
+      this.activateButton();
     }
   }
 

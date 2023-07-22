@@ -2,28 +2,21 @@ import './index.css';
 
 import { Card } from '../script/components/Card.js';
 import { FormValidator } from '../script/components/FormValidator.js';
-import { PopupWithImage } from '../script/components/PicturePopup.js';
+import { PopupWithImage } from '../script/components/PopupWithImage.js';
 import { PopupWithForm } from '../script/components/PopupWithForm.js';
 import { Section } from '../script/components/Section.js';
 import { UserInfo } from '../script/components/UserInfo.js';
-import { initialCards, installation } from '../script/constants.js';
-
-// Кнопки
-const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
-const buttonOpenPopupMesto = document.querySelector('.profile__add-button');
-
-// Форма для редактирования профиля
-const formProfile = document.querySelector('#popup__form_fio');
-const nameInput = formProfile.querySelector('#name-input');
-const aboutInput = formProfile.querySelector('#about-input');
-
-// Форма для создания карточки
-const formCard = document.querySelector('#popup__form_card');
-// const cardName = formCard.querySelector('#card-name-input');
-// const cardImg = formCard.querySelector('#card-img-input');
-
-// Переменная секции карточек для создания массива
-const cards = '.cards';
+import {
+  initialCards,
+  validationConfig,
+  buttonOpenPopupProfile,
+  buttonOpenPopupMesto,
+  formProfile,
+  nameInput,
+  aboutInput,
+  formCard,
+  cardsContainerSelector
+} from '../script/constants.js';
 
 const userInfo = new UserInfo({ fio: '.profile__name', about: '.profile__about-self' });
 
@@ -32,7 +25,7 @@ const createCard = data => {
     {
       data: data,
       handleCardClick: () => {
-        openZoomingPopup.open(data);
+        imagePopup.open(data);
       }
     },
     '#card-template'
@@ -40,28 +33,28 @@ const createCard = data => {
   return newCard;
 };
 
-const openZoomingPopup = new PopupWithImage('#popup-image');
-openZoomingPopup.setEventListeners();
+const imagePopup = new PopupWithImage('#popup-image');
+imagePopup.setEventListeners();
 
-const profileFormValidator = new FormValidator(installation, formProfile);
+const profileFormValidator = new FormValidator(validationConfig, formProfile);
 profileFormValidator.enableValidation();
 
-const cardFormValidator = new FormValidator(installation, formCard);
+const cardFormValidator = new FormValidator(validationConfig, formCard);
 cardFormValidator.enableValidation();
 
-const cardList = new Section(
+const cardsSection = new Section(
   {
     items: initialCards,
     renderer: initialCard => {
       const card = createCard(initialCard);
       const cardEl = card.createCard();
-      cardList.addItem(cardEl);
+      cardsSection.addItem(cardEl);
     }
   },
-  cards
+  cardsContainerSelector
 );
 
-cardList.renderItems();
+cardsSection.renderItems();
 
 const popupProfile = new PopupWithForm('#popup_edit-fio', {
   formSubmitCallback: formData => {
@@ -75,7 +68,7 @@ const popupMesto = new PopupWithForm('#popup_add-card', {
   formSubmitCallback: formData => {
     const card = createCard(formData);
     const cardEl = card.createCard();
-    cardList.addItem(cardEl);
+    cardsSection.addItem(cardEl);
     popupMesto.close();
   }
 });
@@ -85,7 +78,7 @@ buttonOpenPopupMesto.addEventListener('click', () => {
   formCard.reset();
   popupMesto.open();
   cardFormValidator.resetErrors();
-  cardFormValidator.activateButton();
+  cardFormValidator.deactivateButton();
 });
 
 buttonOpenPopupProfile.addEventListener('click', () => {
@@ -94,5 +87,5 @@ buttonOpenPopupProfile.addEventListener('click', () => {
   nameInput.value = profileData.fio;
   aboutInput.value = profileData.about;
   profileFormValidator.resetErrors();
-  profileFormValidator.deactivateButton();
+  profileFormValidator.activateButton();
 });

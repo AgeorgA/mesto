@@ -9,8 +9,8 @@ export class PopupWithImage extends Popup {
 
   open(data) {
     super.open();
-    this._zoomImage.src = data.link;
-    this._zoomName.textContent = data.name;
-    this._zoomImage.alt = data.name;
+    this._zoomImage.src = data.cardLink;
+    this._zoomName.textContent = data.cardName;
+    this._zoomImage.alt = data.cardName;
   }
 }

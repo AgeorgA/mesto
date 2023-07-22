@@ -27,7 +27,7 @@ export const initialCards = [
   }
 ];
 
-export const installation = {
+export const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
@@ -35,3 +35,20 @@ export const installation = {
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_active'
 };
+
+// Кнопки
+export const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
+export const buttonOpenPopupMesto = document.querySelector('.profile__add-button');
+
+// Форма для редактирования профиля
+export const formProfile = document.querySelector('#popup__form_fio');
+export const nameInput = formProfile.querySelector('#name-input');
+export const aboutInput = formProfile.querySelector('#about-input');
+
+// Форма для создания карточки
+export const formCard = document.querySelector('#popup__form_card');
+// const cardName = formCard.querySelector('#card-name-input');
+// const cardImg = formCard.querySelector('#card-img-input');
+
+// Переменная секции карточек для создания массива
+export const cardsContainerSelector = '.cards';
