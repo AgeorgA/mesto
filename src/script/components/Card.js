@@ -35,6 +35,7 @@ export class Card {
   }
 
   _deleteCard() {
+    this._element.remove();
     this._element = null;
   }
 
