@@ -29,7 +29,7 @@ const addUserInfo = new UserInfo({
 });
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-72/',
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-72',
   headers: {
     authorization: 'fee7f70a-8ae2-4599-898e-afe7e7150d3b',
     'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     console.log(err);
   });
 
-const createCard = cardData => {
+function createCard(cardData) {
   const newCard = new Card(
     cardData,
     '#card-template',
@@ -58,17 +58,17 @@ const createCard = cardData => {
       }
     },
     {
-      handleTrashClick: cardEl => {
-        popupConfirm.open(cardEl);
+      handleTrashClick: cardElement => {
+        popupConfirm.open(cardElement);
       }
     },
     {
-      handleSetLike: cardEl => {
+      handleSetLike: cardElement => {
         api
-          .setLike(cardEl.getId())
+          .setLike(cardElement.getId())
           .then(data => {
-            cardEl.toggleLikeClick();
-            cardEl.likeCounter(data);
+            cardElement.toggleLikeClick();
+            cardElement.likeCounter(data);
           })
           .catch(err => {
             console.log(err);
@@ -76,12 +76,12 @@ const createCard = cardData => {
       }
     },
     {
-      handleSetDislike: cardEl => {
+      handleSetDislike: cardElement => {
         api
-          .removeLike(cardEl.getId())
+          .removeLike(cardElement.getId())
           .then(data => {
-            cardEl.toggleLikeClick();
-            cardEl.likeCounter(data);
+            cardElement.toggleLikeClick();
+            cardElement.likeCounter(data);
           })
           .catch(err => {
             console.log(err);
@@ -91,7 +91,7 @@ const createCard = cardData => {
     userId
   );
   return newCard.createCard();
-};
+}
 
 function renderCards(cardData) {
   cardsSection.addItem(createCard(cardData));
@@ -155,12 +155,12 @@ const popupEditAvatar = new PopupWithForm('#popup_edit-avatar', data => {
 popupEditAvatar.setEventListeners();
 
 const popupConfirm = new PopupWithConfirm('#popup_confirm', {
-  handleCardDelete: cardEl => {
+  handleCardDelete: cardElement => {
     api
-      .removeCard(cardEl.id())
+      .removeCard(cardElement.getId())
       .then(() => {
-        popupConfirm.close(cardEl);
-        cardEl.removeCard();
+        popupConfirm.close(cardElement);
+        cardElement.removeCard();
       })
       .catch(err => {
         console.log(err);

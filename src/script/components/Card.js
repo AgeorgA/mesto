@@ -18,8 +18,10 @@ export class Card {
     this._link = data.link;
     this._likes = data.likes;
     this._userId = userId;
+    this._cardId = data._id;
     this._ownerId = data.owner._id;
   }
+
   getId() {
     return this._cardId;
   }
