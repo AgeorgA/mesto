@@ -39,6 +39,7 @@ export const validationConfig = {
 // Кнопки
 export const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
 export const buttonOpenPopupMesto = document.querySelector('.profile__add-button');
+export const buttonOpenPopupEditAvatar = document.querySelector('.profile__edit-avatar-button');
 
 // Форма для редактирования профиля
 export const formProfile = document.querySelector('#popup__form_fio');
@@ -47,6 +48,7 @@ export const aboutInput = formProfile.querySelector('#about-input');
 
 // Форма для создания карточки
 export const formCard = document.querySelector('#popup__form_card');
+export const formEditAvatar = document.querySelector('#popup__form_edit-avatar');
 // const cardName = formCard.querySelector('#card-name-input');
 // const cardImg = formCard.querySelector('#card-img-input');
 

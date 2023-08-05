@@ -7,10 +7,10 @@ export class PopupWithImage extends Popup {
     this._zoomName = this._popup.querySelector('.popup__name-image');
   }
 
-  open(data) {
+  open(link, name) {
     super.open();
-    this._zoomImage.src = data.cardLink;
-    this._zoomName.textContent = data.cardName;
-    this._zoomImage.alt = data.cardName;
+    this._zoomImage.src = link;
+    this._zoomName.textContent = name;
+    this._zoomImage.alt = name;
   }
 }

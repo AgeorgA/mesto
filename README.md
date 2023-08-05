@@ -32,4 +32,4 @@
 
 **Ссылка:**
 
-[https://ageorga.github.io/mesto/index.html]
+[https://ageorga.github.io/mesto]
