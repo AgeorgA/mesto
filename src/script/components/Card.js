@@ -58,9 +58,21 @@ export class Card {
     this._cardName.textContent = this._name;
     this._likeCount.textContent = this._likes.length;
 
+    this._checkLike();
     this._trashboxButtonState();
     this._setEventListeners();
+
+    ///Проверка на наличие лайка
+
     return this._element;
+  }
+
+  _checkLike() {
+    this._likes.forEach(item => {
+      if (this._userId === item._id) {
+        this.toggleLikeClick();
+      }
+    });
   }
 
   removeCard() {
